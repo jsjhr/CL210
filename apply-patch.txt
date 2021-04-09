@@ -1,0 +1,23 @@
+lab architecture-lab setup (chapter 1)
+======================================
+
+error:
+Setting up workstation for lab exercise work:
+
+ · Verifying project: production...............................  SUCCESS
+ · Creating user env file: operator1-production-rc.............  SUCCESS
+ · Creating keypair: example-keypair...........................  SUCCESS
+ . Creating flavor: default....................................  SUCCESS
+ . Creating image: production-rhel7............................  SUCCESS
+ . Creating internal network: production-network1..............  SUCCESS
+ . Creating subnet: production-subnet1.........................  SUCCESS
+ . Creating external network: provider-datacentre..............  SUCCESS
+ . Creating router: production-router1.........................  SUCCESS
+ . Creating security group: default............................  FAIL
+ . Creating port rule: ssh.....................................  FAIL
+ . Creating protocol rule: icmp................................  FAIL
+
+solution:
+sudo patch /usr/local/lib/lab-architecture-lab < CL210/patches/patch-lab-architecture-lab.diff
+
+

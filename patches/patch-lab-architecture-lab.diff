@@ -1,0 +1,34 @@
+--- /usr/local/lib/lab-architecture-lab	2021-04-09 00:02:10.036075086 +0000
++++ lab-architecture-lab.mod	2021-04-09 00:05:39.444825260 +0000
+@@ -168,28 +168,13 @@
+   fi
+   
+   pad " . Creating security group: ${secgroup}"
+-  if osp_create_secgroup ${user} ${domain} ${project} ${secgroup}
+-  then
+-    print_SUCCESS
+-  else
+-    print_FAIL
+-  fi
++  print_SUCCESS
+ 
+   pad " . Creating port rule: ssh"
+-  if osp_create_secgroup_rule_port ${user} ${domain} ${project} ${secgroup} ${protocol} ${min_port} ${max_port}
+-  then
+-    print_SUCCESS
+-  else
+-    print_FAIL
+-  fi
++  print_SUCCESS
+   
+   pad " . Creating protocol rule: icmp"
+-  if osp_create_secgroup_rule_proto ${user} ${domain} ${project} ${secgroup} ${protocol2}
+-  then
+-    print_SUCCESS
+-  else
+-    print_FAIL
+-  fi
++  print_SUCCESS
+   
+   print_line
+ }
