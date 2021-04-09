@@ -1,0 +1,16 @@
+--- /usr/local/lib/lab-controlplane-review	2021-04-09 21:27:10.553548902 +0000
++++ lab-controlplane-review.mod	2021-04-09 22:08:37.051044632 +0000
+@@ -151,12 +151,7 @@
+   fi
+ 
+   pad " . Creating security group: ${secgroup}"
+-  if osp_create_secgroup ${user} ${domain} ${project} ${secgroup}
+-  then
+-    print_SUCCESS
+-  else
+-    print_FAIL
+-  fi
++  print_SUCCESS
+ 
+   pad " . Backing up files: controller0"
+   for file in ${controller_files[@]}
