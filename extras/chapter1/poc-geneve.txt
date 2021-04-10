@@ -1,0 +1,31 @@
+Probar la encapsulacion geneve
+==============================
+
+Requisitos:
+
+2 vm, con 1 interfaz de red, requerimientos basicos 1 vcpu, 2048 de ram, 20GB HD.
+Sistema operativo rhel7 o rhel8 (opcional, centos 7, 8, ubuntu, debian)
+Instalar openvswitch
+Desactivar firewalld o bien configurar las reglas para la red geneve 10.0.0.0/24
+
++ Configuracion en host: geneve1
+
+ovs-vsctl add-br br0
+ovs-vsctl add-br br1
+ovs-vsctl add-port br0 enp1s0
+ip address flush enp1s0
+dhclient br0
+ip a show dev br0
+ip address add 10.0.0.1/24 dev br1
+ovs-vsctl add-port br1 geneve1 -set interface geneve1 type=geneve options:remote_ip=192.168.122.34
+
++ Configuracion en host: geneve2
+
+ovs-vsctl add-br br0
+ovs-vsctl add-br br1
+ovs-vsctl add-port br0 enp1s0
+ip address flush enp1s0
+dhclient br0
+ip a show dev br0
+ip address add 10.0.0.2/24 dev br1
+ ovs-vsctl add-port br1 geneve1 -- set interface geneve1 type=geneve options:remote_ip=192.168.122.131
