@@ -1,0 +1,4 @@
+Como implementar virtualBMC
+===========================
+
+https://docs.openstack.org/project-deploy-guide/tripleo-docs/latest/environments/virtualbmc.html
