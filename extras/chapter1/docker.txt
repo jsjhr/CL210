@@ -1,0 +1,45 @@
+
+OBJETIVO: Preparar docker para instalar jenkins utilizando un volumen 
+          persistente.
+
+# Instalar Docker
+yum install docker
+
+# Iniciar docker
+systemctl start docker
+systemctl enable docker
+
+# Descargar la imagen de jenkins
+docker pull jenkins/jenkins
+
+# Inspeccionar la imagen y buscar el volume
+docker inspect jenkins/jenkins
+
+(el volumen es /var/jenkins_home)
+
+# Configurar almacenamiento local
+mkdir -pv /var/containers/jenkins_home
+
+chown 1000:1000 /var/containers/jenkins_home
+chmod 777 /var/containers/jenkins_home
+semanage fcontext -a -t container_file_t '/var/containers/jenkins_home(/.*)?'
+
+docker run -d -v /var/containers/jenkins_home:/var/jenkins_home -p 8080:8080 --name jenkins_test jenkins/jenkins
+
+# Extraer el password temporal
+
+# Abrir la interfaz web en el puerto 8080 con firefox
+
+# Detener el container
+
+docker stop jenkins_test
+
+# Revisar el FS
+
+ls /var/containers/jenkins_home/
+
+# Revisar el FS local y verificar que se han creado ficheros
+
+# No instalar ningun componente de jenkins, saltar, saltar, entrar a jenkins
+
+docker rm jenkins_home
