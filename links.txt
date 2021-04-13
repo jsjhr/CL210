@@ -6,3 +6,13 @@ https://docs.openstack.org/project-deploy-guide/tripleo-docs/latest/environments
 Capabilities Ironic (instackenv.json)
 =====================================
 https://docs.openstack.org/ironic/rocky/install/advanced.html
+
+Versions openstack numbers and names
+====================================
+
+https://docs.openstack.org/puppet-openstack-guide/latest/install/releases.html
+
+kolla project
+=============
+
+https://github.com/openstack/kolla 
