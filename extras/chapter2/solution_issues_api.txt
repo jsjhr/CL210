@@ -1,0 +1,34 @@
+SOLUCION DE PROBLEMAS DE COMUNICACION DE API
+============================================
+
+* Obtener un token
+openstack token issue
+  
+  Extraer el token que se encuentra en la salida en el campo "id"
+
+* Use el comando curl para recuperar el catalogo de servicios y asegurarse de que
+  las credenciales de autenticacin y el token sean adecuados.
+
+curl -X GET http://172.25.250.50:5000/v3/services \
+-H "Accept: application/json" \ 
+-H "X-Auth-Token: gAAAAABgdi-3-IyRyfUOwo2m0ai8G1LI9RTCz_eAfVMTy3iHWRmgyyzSKd65ddeeB8OfBqgaJpDb6Ik4bfBmN_SEdISmjPgCsLCVah5NhSxhRVHLaUKxNKfx9NKNhtdIu8rfG4QO9cmjXs1DZJjEQ5acYxBA4hpv7u-Ks5G5l5m1GoComb8gRfc" | jq .
+
+ El token que se encuentra en el parametro X-Auth-Token, es el anteriomente obtenido.
+
+* Revisar el archivo /var/log/containers/keystone/keystone.log en busca de errores:
+  [Errno 111] Connection refused
+
+  Esto indicaria que hay problemas para conectarse con el extremo del servicio.
+
+grep "Errno 111" /var/log/containers/keystone/keystone.log
+
+* Revisar el registro API del servicio en busca del patron DiscoveryFailure.
+  (Todos los servicios tiene un API)
+
+grep DiscoveryFailure /var/log/containers/glance/api.log
+
+  Estos errores significan que un operador no puede recuperar datos de una imagen glance.
+
+* Usar la opcion --debug del comando openstack que da una traza completa del comando que se ejecute
+  
+openstack network list --debug
