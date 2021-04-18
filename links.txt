@@ -2,7 +2,6 @@ Como implementar virtualBMC
 ===========================
 https://docs.openstack.org/project-deploy-guide/tripleo-docs/latest/environments/virtualbmc.html
 
-
 Capabilities Ironic (instackenv.json)
 =====================================
 https://docs.openstack.org/ironic/rocky/install/advanced.html
@@ -15,4 +14,9 @@ https://docs.openstack.org/puppet-openstack-guide/latest/install/releases.html
 kolla project
 =============
 
-https://github.com/openstack/kolla 
+https://github.com/openstack/kolla
+
+Token Types
+===========
+
+https://docs.openstack.org/keystone/queens/admin/identity-tokens.html
