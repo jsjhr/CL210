@@ -1,0 +1,24 @@
+Get Started diskimage builder
+=============================
+
+# Instalar virtualenv
+dnf install virtualenv
+
+# Crear un directorio para el virtual env
+mkdir -v dib
+cd dib
+
+# Crear el entorno virtual
+virtualenv dib
+
+# Activar el entorno virtual
+. ./dib/bin/activate
+
+# Instalar diskimage-builder
+pip install diskimage-builder
+
+# Crear una imagen de prueba
+disk-image-create -a amd64 vm base centos7
+
+# Prueba para validar el funcionamiento basico de la imagen
+qemu-system-x86_64 -vnc 127.0.0.1:0 -m 4096 -hda image.qcow2 -daemonize
