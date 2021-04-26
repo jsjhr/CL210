@@ -24,6 +24,8 @@ chown 1000:1000 /var/containers/jenkins_home
 chmod 777 /var/containers/jenkins_home
 semanage fcontext -a -t container_file_t '/var/containers/jenkins_home(/.*)?'
 
+restorecon  -Rv /var/containers/jenkins_home/
+
 docker run -d -v /var/containers/jenkins_home:/var/jenkins_home -p 8080:8080 --name jenkins_test jenkins/jenkins
 
 # Extraer el password temporal
