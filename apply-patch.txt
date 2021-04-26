@@ -42,4 +42,31 @@ solution:
 sudo patch /usr/local/lib/lab-controlplane-review CL210/patches/patch-lab-controlplane-review-lab.diff
 
 
+lab storage-reviw setup
+=======================
+
+Setting up workstation for lab exercise work:
+
+ · Verifying project: production...............................  SUCCESS
+ · Creating user env file: operator1-production-rc.............  SUCCESS
+ · Creating user env file: architect1-production-rc............  SUCCESS
+ · Creating keypair: operator1-keypair.........................  SUCCESS
+ . Verifying flavor: default...................................  SUCCESS
+ . Verifying image: rhel7......................................  SUCCESS
+ . Verifying internal network: production-network1.............  SUCCESS
+ . Verifying subnet: production-subnet1........................  SUCCESS
+ . Verifying external network: provider-datacentre.............  SUCCESS
+ . Backing up Nova and Cinder config files.....................  SUCCESS
+ . Creating router: production-router1.........................  SUCCESS
+ . Verifying security group: default...........................  FAIL
+ . Verifying security group rule: tcp..........................  FAIL
+ . Verifying security group rule ICMP: icmp....................  FAIL
+ . Creating floating IP: 172.25.250.151........................  FAIL
+ · Creating local directory: /home/student/manila..............  SUCCESS
+ · Creating user data file: user-data.file.....................  SUCCESS
+ . Backing up SSH config.......................................  SUCCESS
+ . Adjusting SSH config........................................  SUCCESS
+
+solution:
+sudo patch /usr/local/lib/lab-storage-review CL210/patches/patch-chapter5-lab-storage-review-lab.diff 
 

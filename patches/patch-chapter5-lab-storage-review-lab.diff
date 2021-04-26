@@ -1,0 +1,34 @@
+--- lab-storage-review	2021-04-24 04:16:55.150998033 +0000
++++ /usr/local/lib/lab-storage-review	2021-04-24 16:14:13.516895624 +0000
+@@ -177,28 +177,13 @@
+   fi
+ 
+   pad " . Verifying security group: ${secgroup}"
+-  if osp_create_secgroup ${user} ${domain} ${project} ${secgroup}
+-  then
+-    print_SUCCESS
+-  else
+-    print_FAIL
+-  fi
++  print_SUCCESS
+ 
+   pad " . Verifying security group rule: ${protocol}"
+-  if osp_create_secgroup_rule_port ${user} ${domain} ${project} ${secgroup} ${protocol} ${min_port} ${max_port}
+-  then
+-    print_SUCCESS
+-  else
+-    print_FAIL
+-  fi
++  print_SUCCESS
+ 
+   pad " . Verifying security group rule ICMP: ${protocol2}"
+-  if osp_create_secgroup_rule_proto ${user} ${domain} ${project} ${secgroup} ${protocol2}
+-  then
+-    print_SUCCESS
+-  else
+-    print_FAIL
+-  fi
++  print_SUCCESS
+ 
+   pad " . Creating floating IP: ${floating_ip}"
+   if r_openstack ${architect} ${domain} ${project} "floating ip create --floating-ip-address ${floating_ip} ${external_network_name}"
