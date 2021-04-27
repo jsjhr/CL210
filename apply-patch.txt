@@ -1,3 +1,11 @@
+Pasos previos
+
+sudo yum install git -y
+git clone https://github.com/jsjhr/CL210
+cd CL210
+cd 
+
+
 lab architecture-lab setup (chapter 1)
 ======================================
 
